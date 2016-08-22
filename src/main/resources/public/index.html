@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>The ZooKeepr</title>
+
+<!-- Anugular , UI Router, UI BootStrap -->
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript"
+	src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript"
+	src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+<!--  angular material -->
+<link rel="stylesheet"
+	href="bower_components/angular-material/angular-material.min.css" />
+<script type="text/javascript"
+	src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script type="text/javascript"
+	src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript"
+	src="bower_components/angular-material/angular-material.min.js"></script>
+
+<!--  my files -->
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/js/routes.js"></script>
+<script type="text/javascript" src="/js/themeProvider.js"></script>
+<script type="text/javascript" src="/js/controllers/indexCtrl.js"></script>
+<script type="text/javascript" src="/js/controllers/deleteCtrl.js"></script>
+<script type="text/javascript" src="/js/controllers/createCtrl.js"></script>
+<script type="text/javascript" src="/js/controllers/logCtrl.js"></script>
+<script type="text/javascript" src="/js/controllers/updateCtrl.js"></script>
+<script type="text/javascript" src="/js/factories/animalFactory.js"></script>
+<script type="text/javascript" src="/js/factories/enclosureFactory.js"></script>
+<script type="text/javascript" src="/js/factories/favoriteFoodFactory.js"></script>
+</head>
+<body ng-app="Zookeeper">
+	<h1>Welcome To ZooKeepr</h1>
+	<div layout="column" ng-controller="indexCtrl">
+		 <script type="text/ng-template" id="/html/templates/logPage.tpl.html">  Tab #1 </script>
+	 	 <script type="text/ng-template" id="/html/templates/createPage.tpl.html">  Tab #2 </script>
+  		 <script type="text/ng-template" id="/html/templates/updatePage.tpl.html">  Tab #3 </script>
+ 		 <script type="text/ng-template" id="/html/templates/deletePage.tpl.html">  Tab #4 </script>
+	
+		<md-toolbar>
+		<h2 class="md-toolbar-tools">
+			<span>ZooKeepr Menu</span>
+		</h2>
+		</md-toolbar>
+		<md-tabs md-stretch-tabs md-selected="selectedIndex"> 
+			<md-tab id="logTab" label="LOG"><a ui-sref="log"></a></md-tab>
+			<md-tab id="createTab" label="CREATE"><a ui-sref="create"></a></md-tab>
+			<md-tab id="updateTab" label="UPDATE"><a ui-sref="update"></a></md-tab>
+			<md-tab id="deleteTab" label="DELETE"><a ui-sref="delete"></a></md-tab>							 
+		</md-tabs>
+	
+<!-- 		<div id="content" ui-view flex></div>		 -->
+		
+
+	</div>
+
+</body>
+</html>

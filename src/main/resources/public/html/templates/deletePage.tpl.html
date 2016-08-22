@@ -1,0 +1,16 @@
+<div class="jumbotron">
+	<h3>Circle of Life: End</h3>
+
+	<div>
+		<span><label> Select Enclosure to Delete:</label></span> <select
+			ng-change="changeEnclosureFunction()"
+			ng-options="enclosure.enclosureName for enclosure in enclosures"
+			ng-model="selectedEnclosure"></select>
+	</div>
+
+	<button type="button" class="btn btn-info btn-sm"
+		ng-disabled="myForm.$invalid" ng-model='updateEnclosures'
+		ng-click="deleteEnclosureFunction()">Delete</button>
+	<span><label>{{reply}}</label></span>
+
+</div>

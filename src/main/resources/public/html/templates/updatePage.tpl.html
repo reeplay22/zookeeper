@@ -1,0 +1,76 @@
+<md-content>
+<div>
+	<h4>Update Enclosure</h4>
+	<h5>Please make sure all fields have value before you can submit
+		changes.</h5>
+	<div ng-controller='updateCtrl'>
+	
+		<div class="space"></div>
+			
+			<div>
+			<md-input-container>
+				<span><label> Select Enclosure to Update:</label></span> <select
+					ng-change="changeEnclosureFunction()"
+					ng-options="enclosure.enclosureName for enclosure in enclosures"
+					ng-model="selectedEnclosure"></select>
+					</md-input-container>
+			</div>
+
+			<form name="myForm">
+			
+			<md-input-container>
+				<span><label>Enclosure id :</label></span>
+				<h12>(Not Editable)</h12>
+				<input ng-model="selectedEnclosure.enclosureId" readonly>
+				
+				</md-input-container>
+				<div class="space"></div>
+
+				<md-input-container>
+					<span><label> Edit Enclosure name:</label></span> <input
+						type="text" ng-model="selectedEnclosure.enclosureName" required>
+				</md-input-container>
+
+				<div class="space"></div>
+				<md-input-container>
+					<span> <label>Current animal:</label></span>
+					<h12>(Not Editable)</h12>
+					<input type="text" ng-model="selectedEnclosure.animal.commonName"
+						readonly>
+				</md-input-container>
+
+				<div class="space"></div>
+				
+				<div>
+				<md-input-container>
+					<span> <label> Change animal :</label></span> <select
+						ng-change="changeAnimalFunction()"
+						ng-options="animal.commonName for animal in animals"
+						ng-model="selectedAnimal"></select>
+				</md-input-container>
+				</div>
+				<md-input-container>
+				<span><label> Change Enclosure Condition:</label></span> <input
+					type="text" ng-model="selectedEnclosure.enclosureCondition"
+					required>
+				</md-input-container>
+				
+				
+		<label> Change FeedingTime :</label>
+		<uib-timepicker class="timepicker" ng-model="myTime"
+			ng-change="changed()" hour-step="hstep" minute-step="mstep"
+			show-meridian="ismeridian"></uib-timepicker>
+		<pre class="alert alert-info">Time is Set To: {{myTime | date:'shortTime' }}</pre>
+		<button type="button" class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+		
+		<div class="space"></div>
+		<button type="button" class="btn btn-info btn-sm"
+			ng-disabled="myForm.$invalid" ng-model='updateEnclosures'
+			ng-click="updateEnclosureFunction()">Save</button>
+		<span><label>{{message}}</label></span>
+		<!--   </form>  -->
+		
+	</div>
+</div>
+
+</md-content>

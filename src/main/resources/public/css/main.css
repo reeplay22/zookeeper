@@ -1,0 +1,52 @@
+/* body { */
+/* 	background: url(images/JungleBackground.jpg); */
+/* 	background-size: 100%; */
+/* } */
+
+/* h1 { */
+/* 	color: red; */
+/* } */
+
+/* .tabsdemoDynamicHeight md-content { */
+/* 	background-color: transparent !important; */
+/* } */
+
+
+.demo {
+	position: relative;
+	background-color: #cccccc;
+}
+md-tabs #content{
+	margin-bottom:100px;
+	position:absolute;
+}
+.demo #tab-content {
+	font-weight: 600;
+	border: 1px solid #999999;
+	border-top: none;
+}
+
+/* .tabsdemoStaticTabs md-tab-content { */
+/*   padding: 25px; } */
+/*   .tabsdemoStaticTabs md-tab-content:nth-child(1) { */
+/*     background-color: #42A5F5; } */
+/*   .tabsdemoStaticTabs md-tab-content:nth-child(2) { */
+/*     background-color: #689F38; } */
+/*   .tabsdemoStaticTabs md-tab-content:nth-child(3) { */
+/*     background-color: #26C6DA; } */
+
+/* .tabsdemoStaticTabs .after-tabs-area > span { */
+/*   margin-top: 25px; */
+/*   padding-right: 15px; */
+/*   vertical-align: middle; */
+/*   line-height: 30px; */
+/*   height: 35px; } */
+
+/* .tabsdemoStaticTabs .after-tabs-area > md-checkbox { */
+/*   margin-top: 26px; */
+/*   margin-left: 0; } */
+
+/* .createPage { */
+/* 	text-align: center; */
+/* 	margin-right: 500px; */
+/* } */

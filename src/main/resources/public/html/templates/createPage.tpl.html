@@ -1,0 +1,144 @@
+
+<md-content>
+	<div ng-controller='createCtrl'>
+		<h3>Circle of life: beginning</h3>
+		<h2>Create Enclosure</h2>
+
+
+		<div class="createEnclosure container">
+		
+			<form name="myFormEnclosure">
+				<md-input-container>
+					<label>New Enclosure Name:</label>
+					<input type="text" id="enclosureName"
+						ng-model="enclosure.enclosureName" required> <span
+						class="label label-info" ng-pattern="regEx">Required</span>
+				</md-input-container>
+			
+				<md-input-container>
+					<label>Please enter enclosure's condition:</label>
+					<input type="text" id="enclosureCondition"
+						ng-model="enclosure.enclosureCondition" required> <span
+						class="label label-info">Optional</span>
+				</md-input-container>
+				
+				<div class="animal">
+						<div class="addAnimalOption">
+								<input id="addAnimal" type="radio"
+									ng-change="showAddAnimalFunction()" ng-model="showAddAnimal">
+								Add existing animal </input> <input type="radio" id="createAnimal"
+									ng-change="showCreateAnimalFunction()" ng-model="showCreateAnimal" ng-click="open()">
+								Make new Animal entry </input>
+						</div>
+
+						<div ng-show="showAddAnimal">
+							<md-input-container>
+							<label>Please select an animal:</label>						
+<!-- 								<md-select ng-change="addAnimalFunction()" ng-options="animal.commonName for animal in animals" ng-model="selectedAnimal"></md-select> -->							
+<!-- 							<md-select ng-model="selectedAnimal"> -->
+<!-- 								<md-options ng-repeat="animal in animals" value="{{animal.commonName}}">{{mySplit(animal.commonName, 0)}}</md-options> -->
+<!-- 							</md-select> -->
+							<select ng-change="addAnimalFunction()"
+								ng-options="animal.commonName for animal in animals"
+								ng-model="selectedAnimal"></select>
+							</md-input-container>	
+							</div>
+
+
+									<div class="createAnimal" ng-show="showCreateAnimal">
+										<form name="myFormAnimal">
+									
+											<md-input-container>
+											<label>Please enter New animal Name:</label>
+											<input type="text" id="commonName" ng-model="animal.commonName"
+												required> <span class="label label-info">Required</span>
+												</md-input-container>
+												
+												<md-input-container>
+											<label>Please enter New animal's Scientific Name:</label>
+											<input type="text" id="scientificName"
+												ng-model="animal.scientificName" required> <span
+												class="label label-info">Required</span>
+												</md-input-container>
+												
+																<div class="favoriteFood container">
+																<div class="addFavoriteFoodOption">
+																	<input type="radio" ng-change="showAddFavoriteFoodFunction()"
+																		id="addFavoriteFood" ng-model="showAddFavoriteFood"> Add existing Favorite
+																	Food </input> <input type="radio" id="createFavoriteFood"
+																		ng-change="showCreateFavoriteFoodFunction()"
+																		ng-model="showCreateFavoriteFood"> Make new Favorite
+																	Food entry </input>
+																</div>
+					
+																	<div class="addFavoriteFood" ng-show="showAddFavoriteFood">
+																		<label>Please Select the Favorite Food:</label>
+																		<select ng-change="addFavoriteFoodFunction()"
+																			ng-options="favoriteFood.name for favoriteFood in favoriteFoods"
+																			ng-model="selectedFavoriteFood"></select>
+											
+																	</div>
+					
+																	<div class="createFavoriteFood" ng-show="showCreateFavoriteFood">
+																		<label>Please enter New animal's favorite food:</label>
+																		<input type="text" id="favoriteFood" ng-model="favoriteFood.name"
+																			required> <span class="label label-info">Required</span>
+											
+																		<label>Vendor of favorite food:</label>
+																		<input type="text" id="favoriteFood"
+																			ng-model="favoriteFood.vendorName" required> <span
+																			class="label label-info">Required</span>
+											
+																		<label>Category of Food:</label>
+																		<input type="text" id="favoriteFood"
+																			ng-model="favoriteFood.category" required> <span
+																			class="label label-info">Required</span>
+											
+																		<button id="saveFavoriteFoodButton" type="button" class="btn btn-success"
+																			ng-disabled="myFormAnimal.$invalid"
+																			ng-click="createFavoriteFood()">Save</button>
+																		{{favoriteFoodMessage}}
+																	</div>
+															</div>
+											<md-input-container>
+											
+											<label>Please enter url for additional information:</label>
+											<input type="text" id="infoLink" ng-model="animal.infoLink"
+												required> <span class="label label-info">Optional</span>
+											</md-input-container>										
+											
+											<button type="button" class="btn btn-success" id="saveAnimalButton" 
+												ng-disabled="myFormAnimal.$invalid" ng-click="createNewAnimal()">Save</button>
+												
+										</form>
+										
+										{{animalResponseMessage}}
+										
+										</div>
+									</div>
+
+				<md-input-container>
+				<label>Please enter # of animal's:</label>
+				<input type="text" id="favoriteFood"
+					ng-model="enclosure.numberOfAnimals" required> <span
+					class="label label-info">Required</span>
+				</md-input-container>
+				<div class="timepicker container">
+				<label>Please enter Feeding time for the animal:</label>
+				<uib-timepicker class="timepicker" ng-model="myTime"
+					ng-change="changed()" hour-step="hstep" minute-step="mstep"
+					show-meridian="ismeridian"></uib-timepicker>
+				<pre class="alert alert-info">Time is Set To: {{myTime | date:'shortTime' }}</pre>
+				
+				<button type="button" class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+				</div>
+				<button type="button" class="btn btn-success container" id="saveEnclosureButton" 
+					ng-click="createNewEnclosure()">Save</button>
+			
+			</form>
+			
+			</div>
+			<div ng-model="enclosureMessage">{{enclosureMessage}}</div>
+			
+		</div>
+</md-content>

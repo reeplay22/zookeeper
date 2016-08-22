@@ -1,0 +1,46 @@
+<div class="jumbotron">
+	<h4>
+		<strong>View animals</strong>
+	</h4>
+
+	<div>
+
+		<h4>Search animals</h4>
+
+		<input ng-model="Filter"><i class="glyphicon glyphicon-search"></i>
+
+	</div>
+
+	<table class=table-responsive>
+		<thead>
+			<tr>
+				<th>Enclosure Number</th>
+				<th>Enclosure Name</th>
+				<th>Animal Name</th>
+				<th>Scientific name</th>
+				<th>Favorite Food</th>
+				<th>Vendor of Favorite Food</th>
+				<th>FeedingTime</th>
+			</tr>
+		</thead>
+		<tbody>
+
+
+			<tr ng-repeat="enclosure in enclosures|filter:Filter" border="1">
+				<td>{{enclosure.enclosureId}}</td>
+				<td>{{enclosure.enclosureName}}</td>
+				<td>{{enclosure.animal.commonName}}</td>
+				<td>{{enclosure.animal.scientificName}}</td>
+				<td>{{enclosure.animal.favoriteFood.name}}</td>
+				<td>{{enclosure.animal.favoriteFood.vendorName}}</td>
+				<td><mydate>{{enclosure.feedingTime | date:'h:mm a'}}</mydate></td>
+
+			</tr>
+
+		</tbody>
+	</table>
+
+</div>
+<!-- 		<td> <a ui-sref="editanimal({id:animal.animalId})"> -->
+<!-- 		<button id={{animal.animalId}} type="button" class="btn  btn-info btn-block">Update</button> </a> </td>	 -->
+
